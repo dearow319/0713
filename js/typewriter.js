@@ -1,6 +1,4 @@
-// **로 묶인 문자열을 HTML로 변환하는 함수 (타이핑용 파싱)
 function parseHighlightSegments(text) {
-    // 결과: [{text, highlight: true|false} ...]
     const result = [];
     let i = 0;
     let inHighlight = false;
@@ -8,12 +6,10 @@ function parseHighlightSegments(text) {
     while (i < text.length) {
         if (text.slice(i, i + 2) === '**') {
             if (inHighlight) {
-                // 하이라이트 종료
                 result.push({ text: buffer, highlight: true });
                 buffer = '';
                 inHighlight = false;
             } else {
-                // 하이라이트 시작
                 if (buffer) result.push({ text: buffer, highlight: false });
                 buffer = '';
                 inHighlight = true;
@@ -28,7 +24,6 @@ function parseHighlightSegments(text) {
     return result;
 }
 
-// typeText: 각 엘리먼트별로 타이핑 상태/스킵 관리
 export function typeText(element, text, onComplete) {
     let localTimeoutId = null;
     let localSkipTyping = false;
@@ -40,7 +35,6 @@ export function typeText(element, text, onComplete) {
 
     element._skipTyping = () => {
         localSkipTyping = true;
-        // 전체를 한 번에 출력
         element.innerHTML = segments.map(seg => seg.highlight ? `<span class="highlight-text">${seg.text.replace(/\n/g, '<br>')}</span>` : seg.text.replace(/\n/g, '<br>')).join('');
         delete element._skipTyping;
         if (onComplete) onComplete();
@@ -48,13 +42,11 @@ export function typeText(element, text, onComplete) {
 
     function typeChar() {
         if (localSkipTyping) return;
-        // 모두 출력 완료
         if (segIdx >= segments.length) {
             delete element._skipTyping;
             if (onComplete) onComplete();
             return;
         }
-        // 현재 span이 없으면 새로 생성
         if (charIdx === 0) {
             if (segments[segIdx].highlight) {
                 currentSpan = document.createElement('span');
@@ -64,7 +56,6 @@ export function typeText(element, text, onComplete) {
                 currentSpan = element;
             }
         }
-        // 한 글자 추가
         const ch = segments[segIdx].text[charIdx];
         if (ch === '\n') {
             if (currentSpan === element) {
@@ -87,7 +78,6 @@ export function typeText(element, text, onComplete) {
 }
 
 export function typeTextToButton(button, text, onComplete) {
-    // 버튼에는 하이라이트 적용 안 함 (기존대로)
     let localTimeoutId = null;
     let localSkipTyping = false;
     let idx = 0;

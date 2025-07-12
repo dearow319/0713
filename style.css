@@ -39,7 +39,6 @@ button {
     cursor: pointer;
     border: 1px solid #333;
     margin: 0;
-    transition: all 0.2s ease;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
