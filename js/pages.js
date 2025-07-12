@@ -32,7 +32,7 @@ export const pages = [{
     },
     {
         type: 'text',
-        content: "\n내 앞에 오스월드가 작성한 분석지가 한 장 들이밀어진다.\n\n[S = {I, O, T, S, Z, J, L} // 집합]\n[n ∈ ℕ  // n은 블록이 떨어진 횟수]\n[P(n): ℕ → S  // n번째에 생성되는 블록]\n[P(n)=π⌊n/7⌋[nmod7]πk=Shuffle(S,seed=k∗c)]\n[P(n)=S[(n2+3n+1)mod7]ifnmod4=0S[(5n+1)mod7]ifnmod4=0]\n\n.\n.\n.\n알 수 없는 끝없는 숫자의 나열, 다섯장이 빽빽하게 채워져있다.\n오스월드 : 시작하세요."
+        content: "\n내 앞에 오스월드가 작성한 분석지가 들이밀어진다.\n\n[S = {I, O, T, S, Z, J, L} // 집합]\n[n ∈ ℕ  // n은 블록이 떨어진 횟수]\n[P(n): ℕ → S  // n번째에 생성되는 블록]\n[P(n)=π⌊n/7⌋[nmod7]πk=Shuffle(S,seed=k∗c)]\n[P(n)=S[(n2+3n+1)mod7]ifnmod4=0S[(5n+1)mod7]ifnmod4=0]\n\n.\n.\n.\n알 수 없는 끝없는 숫자의 나열, 다섯장이 빽빽하게 채워져있다.\n오스월드 : 시작하세요."
                 
         ,
     },
