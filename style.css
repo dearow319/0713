@@ -1,0 +1,265 @@
+/* 기본 설정 */
+
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'galmuri';
+    src: url('Galmuri11.ttf') format('truetype');
+}
+
+body {
+    color: white;
+    background-color: black;
+    margin: 0;
+    padding: 10px;
+    font-family: 'galmuri';
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* 데스크톱과 모바일 공통 */
+
+#typewriter {
+    white-space: pre-wrap;
+    font-family: 'galmuri';
+    line-height: 1.6;
+    display: inline-block;
+}
+
+button {
+    color: white;
+    background: none;
+    font-family: 'galmuri';
+    font-size: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border: 1px solid #333;
+    margin: 0;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+button:hover,
+button:active {
+    background: #222;
+    transform: translateY(1px);
+}
+
+#typewriter-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 10px auto;
+    border: 1px solid #333;
+    background: #111;
+    min-height: 200px;
+    box-sizing: border-box;
+    position: relative;
+    padding: 15px;
+}
+
+#next-page {
+    display: none;
+    cursor: pointer;
+    border: 1px solid #333;
+    padding: 15px 30px;
+    background: #111;
+    color: #fff;
+    margin: 15px auto;
+    width: fit-content;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'galmuri';
+}
+
+.choices-container button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 1px solid #333;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 15px 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+    word-wrap: break-word;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.choices-container button:hover,
+.choices-container button:active {
+    background: #222;
+    transform: translateY(1px);
+}
+
+
+/* 새로 추가된 스타일들 */
+
+.page-image {
+    display: block;
+    margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.typewriter-text {
+    white-space: pre-wrap;
+    font-family: 'galmuri';
+    padding: 15px;
+    line-height: 1.6;
+    display: inline-block;
+    min-height: 80px;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.typewriter-result {
+    white-space: pre-wrap;
+    font-family: 'galmuri';
+    padding: 15px;
+    line-height: 1.6;
+    color: #fff;
+    margin-top: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.choices-container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.choice-result-area {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+/* 모바일 최적화 */
+
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+    #typewriter-container {
+        margin: 5px auto;
+        padding: 10px;
+    }
+    button {
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+    .choices-container button {
+        font-size: 14px;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+    }
+    .typewriter-text,
+    .typewriter-result {
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    #next-page {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    .page-image {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* 작은 모바일 화면 */
+
+@media (max-width: 480px) {
+    body {
+        padding: 3px;
+    }
+    #typewriter-container {
+        margin: 3px auto;
+        padding: 8px;
+    }
+    button {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+    .choices-container button {
+        font-size: 13px;
+        padding: 10px 14px;
+        margin-bottom: 6px;
+    }
+    .typewriter-text,
+    .typewriter-result {
+        padding: 10px;
+        font-size: 13px;
+    }
+    #next-page {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
+
+
+/* 터치 디바이스 최적화 */
+
+@media (hover: none) and (pointer: coarse) {
+    button {
+        min-height: 44px;
+        /* 터치 타겟 최소 크기 */
+    }
+    .choices-container button {
+        min-height: 44px;
+    }
+    #next-page {
+        min-height: 44px;
+    }
+}
+
+
+/* 다크 모드 지원 */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #000;
+        color: #fff;
+    }
+    #typewriter-container {
+        background: #111;
+        border-color: #333;
+    }
+    button {
+        border-color: #333;
+    }
+    .choices-container button {
+        border-color: #333;
+    }
+}
+
+
+/* 접근성 개선 */
+
+@media (prefers-reduced-motion: reduce) {
+    button,
+    .choices-container button {
+        transition: none;
+    }
+    button:hover,
+    button:active,
+    .choices-container button:hover,
+    .choices-container button:active {
+        transform: none;
+    }
+}

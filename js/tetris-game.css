@@ -1,0 +1,188 @@
+/* 테트리스 게임 스타일 */
+
+.tetris-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tetris-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.score-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+}
+
+.start-btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #0ff, #00ccff);
+    color: #222;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.start-btn:hover {
+    background: linear-gradient(45deg, #00ccff, #0ff);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.4);
+}
+
+.start-btn:active {
+    transform: translateY(0);
+}
+
+.tetris-board {
+    display: grid;
+    grid-template-rows: repeat(20, 20px);
+    grid-template-columns: repeat(10, 20px);
+    gap: 1px;
+    background: #111;
+    border: 3px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.tetris-cell {
+    width: 20px;
+    height: 20px;
+    background: #222;
+    border-radius: 2px;
+    transition: all 0.1s ease;
+    border: 1px solid #333;
+}
+
+.tetris-cell.filled {
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.tetris-cell.I {
+    background: linear-gradient(45deg, #00f0f0, #00cccc);
+    border-color: #00ffff;
+}
+
+.tetris-cell.O {
+    background: linear-gradient(45deg, #f0f000, #cccc00);
+    border-color: #ffff00;
+}
+
+.tetris-cell.T {
+    background: linear-gradient(45deg, #a000f0, #8000cc);
+    border-color: #ff00ff;
+}
+
+.tetris-cell.S {
+    background: linear-gradient(45deg, #00f000, #00cc00);
+    border-color: #00ff00;
+}
+
+.tetris-cell.Z {
+    background: linear-gradient(45deg, #f00000, #cc0000);
+    border-color: #ff0000;
+}
+
+.tetris-cell.J {
+    background: linear-gradient(45deg, #0000f0, #0000cc);
+    border-color: #0000ff;
+}
+
+.tetris-cell.L {
+    background: linear-gradient(45deg, #f0a000, #cc8000);
+    border-color: #ff8000;
+}
+
+.game-over {
+    color: #ff4444;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff4444;
+    animation: pulse 1s infinite;
+}
+
+.game-over-text {
+    color: #0ff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 0 0 10px #0ff;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+
+/* **로 묶인 문자열을 위한 초록색 반짝이는 스타일 */
+
+.highlight-text {
+    color: #00ff00;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ff00;
+    animation: greenGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #0ff;
+    }
+    to {
+        text-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+    }
+}
+
+@keyframes greenGlow {
+    from {
+        text-shadow: 0 0 10px #00ff00;
+        color: #00ff00;
+    }
+    to {
+        text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+        color: #00ff00;
+    }
+}
+
+
+/* 게임 컨테이너 반응형 */
+
+@media (max-width: 600px) {
+    .tetris-board {
+        grid-template-rows: repeat(20, 15px);
+        grid-template-columns: repeat(10, 15px);
+        gap: 1px;
+    }
+    .tetris-cell {
+        width: 15px;
+        height: 15px;
+    }
+    .score-display {
+        font-size: 1.2em;
+    }
+    .start-btn {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+}
