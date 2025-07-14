@@ -33,16 +33,24 @@ function processPageFromObject(page) {
             gameContainer.id = 'tetris-game-container';
             container.appendChild(gameContainer);
 
+            // ✅ 수정된 점수 분기 포함 콜백
             currentTetrisGame = new TetrisGame(gameContainer, (score) => {
                 if (page.scoreKey) {
                     scoreManager.saveScore(page.scoreKey, score);
                 }
 
-                isTetrisGameActive = false;
+                // 기준 점수는 page.passScore에 따라 설정 (없으면 700)
+                const passScore = page.passScore || 700;
 
-                setTimeout(() => {
-                    nextPageElement.style.display = 'block';
-                }, 2000);
+                if (score >= passScore) {
+                    isTetrisGameActive = false;
+                    setTimeout(() => {
+                        nextPageElement.style.display = 'block';
+                    }, 2000);
+                } else {
+                    alert("오스월드 : 마음에 들지 않는 점수군요. 최소 " + passScore + "점은 넘을 수 있도록 다시 한 번 시도 해봐야겠습니다.");
+                    location.reload();
+                }
             });
         });
         return;
