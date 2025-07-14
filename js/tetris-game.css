@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .tetris-container {
     background: #222;
     border: 8px outset #b0b0b0;
@@ -98,39 +99,16 @@
     border: 3px outset #1d1d1d;
 }
 
-.tetris-cell.I {
-    background: #3affff;
-    border-color: #00f0f0;
-}
-
-.tetris-cell.O {
-    background: #ffff2b;
-    border-color: #f0f000;
-}
-
-.tetris-cell.T {
-    background: #b218ff;
-    border-color: #a000f0;
-}
-
-.tetris-cell.S {
-    background: #33ff33;
-    border-color: #00ff00;
-}
-
-.tetris-cell.Z {
-    background: #ff3434;
-    border-color: #ff0000;
-}
-
-.tetris-cell.J {
-    background: #3838ff;
-    border-color: #0000ff;
-}
-
+/* 🔴 모든 블록을 빨간색으로 설정 */
+.tetris-cell.I,
+.tetris-cell.O,
+.tetris-cell.T,
+.tetris-cell.S,
+.tetris-cell.Z,
+.tetris-cell.J,
 .tetris-cell.L {
-    background: #ffb938;
-    border-color: #ffa600;
+    background: #ff3333;
+    border-color: #cc0000;
 }
 
 .game-over {
