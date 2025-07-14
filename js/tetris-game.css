@@ -4,6 +4,12 @@ body {
     background: #111;
     margin: 0;
     font-family: 'Press Start 2P', 'Courier New', monospace;
+    /* 글자색은 전역에서 지정하지 않음 */
+}
+
+/* 테트리스 UI만 빨강색 적용 */
+.tetris-container,
+#tetris2-container {
     color: #ff3333;
 }
 
@@ -120,13 +126,16 @@ body {
         grid-template-columns: repeat(10, 15px);
         gap: 1px;
     }
+
     .tetris-cell {
         width: 15px;
         height: 15px;
     }
+
     .score-display {
         font-size: 10px;
     }
+
     .start-btn {
         padding: 6px 10px;
         font-size: 10px;
