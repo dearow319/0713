@@ -1,4 +1,12 @@
-export const pages = [{
+// ✅ 먼저 showTetris2Page 함수는 페이지 배열 밖에 선언해야 함
+function showTetris2Page() {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("tetris2-container").style.display = "block";
+    startTetris2();
+}
+
+// ✅ 그 다음 pages 배열을 export
+export const pages = [
         type: 'text',
         content: "오스월드 화이트, 그 애는 일주일 전부터, 옆집에 혼자 들어와 살기 시작했다.\n또래라는 말에 인사라도 해볼까 했지만, 도통 마주칠 기회가 없었다.\n어느 학교를 다니는지도 알 수 없다.\n방학 때 돌아와 잠깐 얼굴을 비추는 게 전부.\n\n부모님은 '어쩐지 느낌이 좋지 않다'며, 가까이 지내지 말라고 했지만\n…나 같은 열네 살 남자애에게 이건 몰래 친해져보라는 부추김에 가깝다.\n결국 나는 방학 과제를 핑계 삼아, 그에게 찾아가 말을 걸기 시작했다.\n\n.\n.\n.\n대화를 두세번 나눠본게 전부지만 나는 확신할 수 있었다!\n오스월드는 부모님 말처럼 '나쁜 애'는 아니라고.\n하지만 조금 더 친해질 만하면, 그 애는 어김없이 몇달씩 자리를 비워버렸다…\n요즘 나는 종종 오스월드를 그린다.\n조용하고 낯선 옆집 소년.\n어서 방학을 마치고, 돌아왔으면 좋겠다고….",
     },
