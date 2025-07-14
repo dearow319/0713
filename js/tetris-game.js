@@ -1,5 +1,5 @@
 export class TetrisGame {
-    constructor(container, onGameEnd) {
+    constructor(container, onGameEnd, mode = 'normal') {
         this.container = container;
         this.onGameEnd = onGameEnd;
         this.score = 0;
@@ -197,6 +197,7 @@ export class TetrisGame {
         };
 
         this.COLORS = ['I', 'O', 'T', 'S', 'Z', 'J', 'L'];
+        this.mode = mode;
 
         this.next = this.randomBlock();
 
@@ -264,6 +265,9 @@ export class TetrisGame {
             this.startGame();
         });
         document.addEventListener('keydown', (e) => {
+            if (e.key === ' ') {
+                e.preventDefault();
+            }
             if (this.isGameOver || !this.current) return;
             switch (e.key) {
                 case 'ArrowLeft':
@@ -286,6 +290,16 @@ export class TetrisGame {
     }
 
     randomBlock() {
+        if (this.mode === 'o-only') {
+            const type = 'O';
+            return {
+                type,
+                dir: 0,
+                shape: this.BLOCKS[type][0],
+                x: 3,
+                y: -2,
+            };
+        }
         const type =
             this.COLORS[Math.floor(Math.random() * this.COLORS.length)];
         return {
@@ -346,6 +360,7 @@ export class TetrisGame {
             this.gameOverEl.style.display = 'block';
             if (this.scoreManager) this.scoreManager.saveScore('default', this.score);
             this.onGameEnd(this.score);
+            this.current = null;
         }
 
         if (this.board[0].some((cell) => cell)) {
@@ -354,6 +369,7 @@ export class TetrisGame {
             this.gameOverEl.style.display = 'block';
             if (this.scoreManager) this.scoreManager.saveScore('default', this.score);
             this.onGameEnd(this.score);
+            this.current = null;
         }
     }
 

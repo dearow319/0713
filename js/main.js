@@ -14,15 +14,8 @@ function processPageFromObject(page) {
     container.innerHTML = '';
     nextPageElement.style.display = 'none';
 
-    if (page.image) {
-        const img = document.createElement('img');
-        img.src = page.image;
-        img.alt = "Page Image";
-        img.className = 'page-image';
-        container.appendChild(img);
-    }
-
-    if (page.type === 'tetris') {
+    // 'tetris'와 'tetris2' 모두 여기서 처리
+    if (page.type === 'tetris' || page.type === 'tetris2') {
         isTetrisGameActive = true;
 
         const textElement = document.createElement('div');
@@ -34,6 +27,8 @@ function processPageFromObject(page) {
             gameContainer.id = 'tetris-game-container';
             container.appendChild(gameContainer);
 
+            // 'tetris2'면 'o-only' 모드, 아니면 기본
+            const mode = page.type === 'tetris2' ? 'o-only' : 'normal';
             currentTetrisGame = new TetrisGame(gameContainer, (score) => {
                 if (page.scoreKey) {
                     scoreManager.saveScore(page.scoreKey, score);
@@ -50,9 +45,17 @@ function processPageFromObject(page) {
                     alert("오스월드 : 마음에 들지 않는 점수군요. 최소 " + passScore + "점은 넘을 수 있도록 다시 한 번 시도 해봐야겠습니다.");
                     processPageFromObject(pages[currentPageIndex]);
                 }
-            });
+            }, mode);
         });
         return;
+    }
+
+    if (page.image) {
+        const img = document.createElement('img');
+        img.src = page.image;
+        img.alt = "Page Image";
+        img.className = 'page-image';
+        container.appendChild(img);
     }
 
     const textElement = document.createElement('div');
@@ -206,13 +209,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === ' ') {
+            // 현재 페이지가 테트리스(혹은 테트리스2)면 무시
+            const page = pages[currentPageIndex];
+            if (page && (page.type === 'tetris' || page.type === 'tetris2')) return;
             e.preventDefault();
-            if (isTetrisGameActive) return;
-
             if (isAnyTyping()) {
                 skipAllTyping();
             } else {
-                if (pages[currentPageIndex] && pages[currentPageIndex].type === 'choice') return;
+                if (page && page.type === 'choice') return;
                 currentPageIndex++;
                 if (currentPageIndex < pages.length) {
                     processPageFromObject(pages[currentPageIndex]);
@@ -221,4 +225,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-

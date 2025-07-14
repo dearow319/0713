@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="js/tetris-game.css">
-  <link rel="stylesheet" href="tetris2.css"> <!-- ✅ 여기에 위치해야 합니다 -->
-  <title>Oswald Story</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js/tetris-game.css">
+    <title>Oswald Story</title>
 </head>
+
 <body>
-  <div id="typewriter-container"></div>
-  <div id="next-page" style="display: none;">다음 페이지로</div>
+    <div id="typewriter-container"></div>
+    <div id="next-page" style="display: none;">다음 페이지로</div>
 
-  <!-- ✅ 테트리스2 UI를 여기에 포함 -->
-  <div id="tetris2-container" style="display: none;">
-    <div id="tetris2-board"></div>
-    <div class="score-display">SCORE: <span id="tetris2-score">0</span></div>
-    <button class="start-btn" onclick="startTetris2()">START</button>
-  </div>
-
-  <!-- ✅ script는 항상 body 맨 아래 -->
-  <script type="module" src="js/main.js"></script>
-  <script src="tetris2.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
+
 </html>
