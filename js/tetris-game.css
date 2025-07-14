@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.tetris-container {
-    background: #222;
-    border: 8px outset #b0b0b0;
-    box-shadow: 0 0 0 4px #444;
+body {
+    background: #111;
+    margin: 0;
     font-family: 'Press Start 2P', 'Courier New', monospace;
+    color: #ff3333;
+}
+
+.tetris-container {
     padding: 16px;
     display: flex;
     flex-direction: row;
     gap: 24px;
     justify-content: center;
     align-items: flex-start;
+    background: #111;
 }
 
 .tetris-info {
@@ -24,82 +28,54 @@
 .level-display,
 .next-display,
 .statistics-display {
-    background: #222;
-    border: 3px outset #b0b0b0;
-    color: #fff;
+    background: none;
+    color: #ff3333;
     font-size: 12px;
-    padding: 10px 12px;
-    margin-bottom: 8px;
+    padding: 4px;
+    margin: 0;
     letter-spacing: 1px;
-    font-family: 'Press Start 2P', 'Courier New', monospace;
 }
-
-.next-display {}
 
 .score-display span {
-    color: #ffd700;
-}
-
-.level-display {
-    color: #00ffff;
-}
-
-.next-display {
-    color: #00ff00;
-}
-
-.statistics-display {
-    color: #ffa500;
-    font-size: 11px;
-    padding: 8px 8px;
+    color: #ff3333;
 }
 
 .start-btn {
     padding: 10px 20px;
     font-size: 12px;
-    border: 3px outset #b0b0b0;
-    border-radius: 0;
-    background: #444;
-    margin: 0 auto;
-    color: #fff;
+    border: none;
+    background: #222;
+    color: #ff3333;
     cursor: pointer;
     font-weight: bold;
-    font-family: 'Press Start 2P', 'Courier New', monospace;
-    box-shadow: 2px 2px 0px #000;
-    margin-bottom: 8px;
+    text-transform: uppercase;
 }
 
 .start-btn:hover {
-    background: #666;
-    box-shadow: 4px 4px 0px #000;
+    background: #333;
 }
 
 .tetris-board {
     display: grid;
     grid-template-rows: repeat(20, 24px);
     grid-template-columns: repeat(10, 24px);
-    gap: 0px;
-    background: #111;
-    border: 5px outset #b0b0b0;
-    border-radius: 0;
-    padding: 8px;
+    background: #000;
+    padding: 4px;
+    gap: 1px;
 }
 
 .tetris-cell {
     width: 24px;
     height: 24px;
-    background: #222;
-    border-radius: 0;
+    background: #1a1a1a;
     box-sizing: border-box;
-    border: 2px solid #1d1d1d;
 }
 
 .tetris-cell.filled {
-    box-shadow: none;
-    border: 3px outset #1d1d1d;
+    background: #ff3333;
 }
 
-/* 🔴 모든 블록을 빨간색으로 설정 */
+/* 모든 블록 빨강 통일 */
 .tetris-cell.I,
 .tetris-cell.O,
 .tetris-cell.T,
@@ -108,7 +84,7 @@
 .tetris-cell.J,
 .tetris-cell.L {
     background: #ff3333;
-    border-color: #cc0000;
+    border: none;
 }
 
 .game-over {
@@ -116,33 +92,26 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ff0000;
+    color: #ff3333;
     font-size: 1.2em;
     font-weight: bold;
-    text-shadow: 2px 2px 0px #000;
-    font-family: 'Press Start 2P', 'Courier New', monospace;
-    background: #222;
-    border: 3px solid #b0b0b0;
+    background: #000;
     padding: 10px 30px;
     text-align: center;
     z-index: 10;
 }
 
 .game-over-text {
-    color: #ffd700;
+    color: #ff3333;
     font-size: 1em;
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
-    text-shadow: 2px 2px 0px #000;
-    font-family: 'Press Start 2P', 'Courier New', monospace;
 }
 
 .highlight-text {
-    color: #00ff00;
+    color: #ff3333;
     font-weight: bold;
-    text-shadow: 2px 2px 0px #000;
-    font-family: 'Press Start 2P', 'Courier New', monospace;
 }
 
 @media (max-width: 600px) {
