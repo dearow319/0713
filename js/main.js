@@ -42,7 +42,7 @@ function processPageFromObject(page) {
                         nextPageElement.style.display = 'block';
                     }, 2000);
                 } else {
-                    alert("오스월드 : 마음에 들지 않는 점수군요. 최소 " + passScore + "점은 넘을 수 있도록 다시 한 번 시도 해봐야겠습니다.");
+                    alert("오스월드 : 통계상 이 점수는 하위 40% 이내로 추정됩니다. 다음 시도에서 최소 " + passScore + "점을 확보하세요.");
                     processPageFromObject(pages[currentPageIndex]);
                 }
             }, mode);
